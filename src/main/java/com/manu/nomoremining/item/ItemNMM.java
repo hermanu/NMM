@@ -12,45 +12,24 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class ItemNMM
 {
-//    public ItemNMM()
-//    {
-//        super();
-//
-//    }
-//
-//    @Override
-//    public String getUnlocalizedName()
-//    {
-//        return String.format("item.%s%s", Reference.MOD_ID.toLowerCase()+ ":",getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
-//    }
-//
-//    @Override
-//    public String getUnlocalizedName(ItemStack itemStack)
-//    {
-//        return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() +":",getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
-//    }
-//
-//    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-//    {
-//        return unlocalizedName.substring(unlocalizedName.indexOf(".")+1);
-//    }
 
 
-    public static Item test_item;
+
+    public static Item mob_encloser;
 
     public static void init()
     {
-        test_item = new ItemTest().setUnlocalizedName("test_item").setCreativeTab(NoMoreMining.tabNMM);
+        mob_encloser = new ItemMobEncloser().setUnlocalizedName("mob_encloser").setCreativeTab(NoMoreMining.tabNMM);
 
     }
     public static void register()
     {
-        GameRegistry.registerItem(test_item, test_item.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(mob_encloser, mob_encloser.getUnlocalizedName().substring(5));
     }
 
     public static void registerRenders()
     {
-        registerRender(test_item);
+        registerRender(mob_encloser);
     }
 
     public static void registerRender(Item item)

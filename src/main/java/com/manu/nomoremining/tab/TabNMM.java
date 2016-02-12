@@ -17,6 +17,6 @@ public class TabNMM extends CreativeTabs
     }
     @Override
     public Item getTabIconItem() {
-        return ItemNMM.test_item;
+        return ItemNMM.mob_encloser;
     }
 }
