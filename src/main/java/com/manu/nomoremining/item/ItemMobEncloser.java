@@ -28,10 +28,8 @@ public class ItemMobEncloser extends Item
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-
-        Entity mob;
-
         if(stack.getTagCompound() != null){
+            Entity mob;
             NBTTagCompound nbt = stack.getTagCompound();
             mob = EntityList.createEntityFromNBT(nbt,worldIn);
 
@@ -56,9 +54,9 @@ public class ItemMobEncloser extends Item
             if(mob instanceof EntityLiving) {
                 ((EntityLiving)mob).playLivingSound();
             }
-            LogHelper.info("SPAWN BITCH");
+            LogHelper.info("SPAWN");
 
-            return true;
+            return false;
         }
 
         return false;
@@ -96,8 +94,7 @@ public class ItemMobEncloser extends Item
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World worldIn, EntityPlayer playerIn)
     {
-
-        stack.setTagCompound(null);
+        if(playerIn.isSneaking())stack.setTagCompound(null);
         return stack;
     }
 
@@ -108,6 +105,7 @@ public class ItemMobEncloser extends Item
         if(stack.getTagCompound() != null){
 
             NBTTagCompound nbt = stack.getTagCompound();
+            LogHelper.info(nbt.getInteger("DropChances"));
             tooltip.add("Name : " +nbt.getString("id"));
             tooltip.add("Health : "+ nbt.getInteger("Health"));
         }
@@ -119,7 +117,7 @@ public class ItemMobEncloser extends Item
     {
         if(stack.getTagCompound() != null)
         {
-            return stack.getTagCompound().hasKey("coords");
+            return stack.getTagCompound().hasKey("id");
         }
         return false;
     }
