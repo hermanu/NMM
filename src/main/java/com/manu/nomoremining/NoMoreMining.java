@@ -1,7 +1,7 @@
 package com.manu.nomoremining;
 
-import com.manu.nomoremining.blocks.BlocksNMM;
 import com.manu.nomoremining.configuration.ConfigurationHandler;
+import com.manu.nomoremining.init.ModBlocks;
 import com.manu.nomoremining.init.ModItems;
 import com.manu.nomoremining.proxy.CommonProxy;
 import com.manu.nomoremining.reference.Reference;
@@ -33,8 +33,8 @@ public class NoMoreMining
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
-        BlocksNMM.init();
-        BlocksNMM.register();
+        ModBlocks.init();
+        ModBlocks.register();
         ModItems.init();
         ModItems.register();
 

@@ -1,7 +1,7 @@
 {
   "parent": "builtin/generated",
   "textures": {
-    "layer0": "nmm:items/test_item"
+    "layer0": "nmm:items/mob_encloser"
   },
   "display": {
     "thirdperson": {

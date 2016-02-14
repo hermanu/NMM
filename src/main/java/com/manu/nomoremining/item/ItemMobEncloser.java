@@ -1,5 +1,6 @@
 package com.manu.nomoremining.item;
 
+import com.manu.nomoremining.init.ModItems;
 import com.manu.nomoremining.utility.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -7,7 +8,6 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by Manu on 07/02/2016.
  */
-public class ItemMobEncloser extends Item
+public class ItemMobEncloser extends ItemNMM
 {
 
     @Override
@@ -73,7 +73,7 @@ public class ItemMobEncloser extends Item
         nbt.setString("id",entityId);
         target.writeToNBT(nbt);
         stack.setTagCompound(nbt);
-        ItemStack capturedMob = new ItemStack(ItemNMM.mob_encloser);
+        ItemStack capturedMob = new ItemStack(ModItems.mob_encloser);
         capturedMob.setTagCompound(nbt);
 //        setDisplayNameFromEntityNameTag(capturedMob,target);
         playerIn.swingItem();

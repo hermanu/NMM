@@ -1,5 +1,6 @@
 package com.manu.nomoremining.tab;
 
+import com.manu.nomoremining.init.ModItems;
 import com.manu.nomoremining.item.ItemNMM;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -17,6 +18,6 @@ public class TabNMM extends CreativeTabs
     }
     @Override
     public Item getTabIconItem() {
-        return ItemNMM.mob_encloser;
+        return ModItems.mob_encloser;
     }
 }
