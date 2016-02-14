@@ -3,9 +3,11 @@ package com.manu.nomoremining;
 import com.manu.nomoremining.configuration.ConfigurationHandler;
 import com.manu.nomoremining.init.ModBlocks;
 import com.manu.nomoremining.init.ModItems;
+import com.manu.nomoremining.init.ModTileEntities;
+import com.manu.nomoremining.init.Recipies;
 import com.manu.nomoremining.proxy.CommonProxy;
 import com.manu.nomoremining.reference.Reference;
-import com.manu.nomoremining.tab.TabNMM;
+import com.manu.nomoremining.creativetab.CreativeTabNMM;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -25,15 +27,16 @@ public class NoMoreMining
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
 
-    public static final TabNMM tabNMM = new TabNMM("tabNMM");
+    public static final CreativeTabNMM tabNMM = new CreativeTabNMM("tabNMM");
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+//        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
         ModBlocks.init();
+        ModTileEntities.init();
         ModBlocks.register();
         ModItems.init();
         ModItems.register();
@@ -43,6 +46,7 @@ public class NoMoreMining
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+
         // some example code
         System.out.println("DIRT BLOCK >> "+Blocks.dirt.getUnlocalizedName());
         proxy.registerRenders();

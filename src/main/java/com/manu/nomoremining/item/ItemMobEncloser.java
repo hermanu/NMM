@@ -50,7 +50,13 @@ public class ItemMobEncloser extends ItemNMM
                 ((EntityLiving)mob).setCustomNameTag(stack.getDisplayName());
             }
 
+
+
+            mob.entityDropItem(new ItemStack(ModItems.mob_encloser),2);
+
+
             worldIn.spawnEntityInWorld(mob);
+
             if(mob instanceof EntityLiving) {
                 ((EntityLiving)mob).playLivingSound();
             }
@@ -71,6 +77,8 @@ public class ItemMobEncloser extends ItemNMM
         String entityId = target.getName();
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setString("id",entityId);
+        nbt.setString("Drops","diamond_ore");
+
         target.writeToNBT(nbt);
         stack.setTagCompound(nbt);
         ItemStack capturedMob = new ItemStack(ModItems.mob_encloser);
@@ -78,6 +86,12 @@ public class ItemMobEncloser extends ItemNMM
 //        setDisplayNameFromEntityNameTag(capturedMob,target);
         playerIn.swingItem();
         target.setDead();
+
+        //Changing mob drop
+
+
+
+
         if(target.isDead)
         {
             stack.stackSize--;
@@ -87,7 +101,6 @@ public class ItemMobEncloser extends ItemNMM
             target.worldObj.spawnEntityInWorld(new EntityItem(target.worldObj,target.posX,target.posY, target.posZ, capturedMob));
         }
         playerIn.setCurrentItemOrArmor(0, stack);
-
         return false;
     }
 
@@ -105,9 +118,10 @@ public class ItemMobEncloser extends ItemNMM
         if(stack.getTagCompound() != null){
 
             NBTTagCompound nbt = stack.getTagCompound();
-            LogHelper.info(nbt.getInteger("DropChances"));
+//            LogHelper.info(nbt.get);
             tooltip.add("Name : " +nbt.getString("id"));
             tooltip.add("Health : "+ nbt.getInteger("Health"));
+            tooltip.add("Drop : "+nbt.getString("Drops"));
         }
 
     }

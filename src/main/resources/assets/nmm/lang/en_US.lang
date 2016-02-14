@@ -1,1 +1,3 @@
-item.mob_encloser.name=ElPutoManu
+item.mob_encloser.name=Mob Encloser
+tile.test_block.name=Machine
+itemGroup.tabNMM=No More Mining

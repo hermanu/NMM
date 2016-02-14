@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 /**
  * Created by Manu on 07/02/2016.
  */
-public class ModItems extends ItemNMM
+public class ModItems
 {
     public static Item mob_encloser;
 
@@ -26,7 +26,7 @@ public class ModItems extends ItemNMM
 
     public static void registerRenders()
     {
-        registerRender(mob_encloser);
+        ItemNMM.registerRender(mob_encloser);
     }
 
 
